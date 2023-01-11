@@ -1,19 +1,24 @@
 import React,{ useRef } from "react";
 import {Link} from "react-router-dom"
 import emailjs from '@emailjs/browser';
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const Contact = ()=>{
     const form = useRef();
     const sendEmail = (e) => {
         e.preventDefault();
     
-        emailjs.sendForm('service_68g4anq', 'template_5b21kvb', form.current, '2jLOq1RV3jy8gaOdF')
+        emailjs.sendForm('service_68g4anq', 'template_tsqau7d', form.current, '2jLOq1RV3jy8gaOdF')
           .then((result) => {
               console.log(result.text);
           }, (error) => {
               console.log(error.text);
           });
           e.target.reset();
+          toast("Message Send",{
+            type: "success",
+            autoClose: 3000,
+        });
       };
     return(
       <div className="container-fluid bg-dark main p-5" style={{height :"100vh"}}>
@@ -34,6 +39,7 @@ const Contact = ()=>{
                 </div>
                 <button type="submit"  className="btn btn-success">Submit</button>
                </form>
+               <ToastContainer />
       </div>
     )
 }

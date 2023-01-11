@@ -3,9 +3,9 @@ import React from "react";
 
 const Footer = ()=>{
 return(
-<footer className="bg-dark text-center text-lg-start">
+<footer className="bg-dark text-center">
   <div className="text-center p-3 text-white">
-    © 2023 Copyright QuizApp
+    © Copyright 2023 QuizApp
   </div>
 </footer>
 )

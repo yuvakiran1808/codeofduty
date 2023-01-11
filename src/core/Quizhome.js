@@ -46,7 +46,7 @@ const Quizhome = () => {
           </div>
         </div>
       ) : (
-         <Quiz />
+         <Quiz character = {character}/>
       )}
       <ToastContainer />
     </div>

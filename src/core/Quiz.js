@@ -3,6 +3,18 @@ import "../index.css";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+
+
+const fade = {
+  hidden : {
+      opacity:0,
+  },
+  show : {
+      opacity : 1,
+      transition: {ease : "easeOut",duration : 0.75},
+  },
+};
 const questions = [
   {
     question: "What is the name of Harry Potter's owl",
@@ -51,7 +63,7 @@ const questions = [
   },
 ];
 
-const Quiz = () => {
+const Quiz = ({character}) => {
   const [show, setShow] = useState(false);
   const [presentquestion,setPresentQuestion] = useState(0);
   const [score,setScore] = useState(0);
@@ -78,32 +90,49 @@ const Quiz = () => {
       }
       else{
         setShow(true);
+        if(score<=2)
+        {
+          toast("You Lose",{
+            type: "warning",
+            autoClose: 5000,
+            theme : "dark",
+            position : "top-center"
+        });
+        }
+        else{
+          toast("You Won",{
+            type: "success",
+            autoClose: 5000,
+            theme : "dark",
+            position : "top-center"
+        });
+        }
       }
   }
   return (
-    <div>
+    <motion.div>
       {show ? (
         <div className="quizCon px-3">
           <div className="container mt-5 bg-dark p-5 text-center">
             <h1 className="text-center text-primary ">Your result : </h1>
-              <h1 className="text-white text-center mt-5">You scored {score} out of 5</h1>
+              <h1 className="text-white text-center mt-5">Hey! {character} you scored {score} out of 5</h1>
               <Link to = "/" className = "btn btn-warning mt-3">Back To Home</Link>
           </div>
         </div>
       ) : (
-        <div className="quizCon px-3">
-          <div className="container mt-5 bg-dark p-5">
-            <h3 className="text-white"> <span>{presentquestion+1}/5.</span> {questions[presentquestion].question}</h3>
-            <ul className="list-group mt-3">
+        <motion.div className="quizCon px-3" variants={fade} initial = "hidden" animate = "show">
+          <motion.div className="container mt-5 bg-dark p-5">
+            <motion.h3 className="text-white"> <span>{presentquestion+1}/5.</span> {questions[presentquestion].question}</motion.h3>
+            <motion.ul className="list-group mt-3">
               {questions[presentquestion].answers.map((element) => {
-                return <li onClick={()=>onClickHandler(element.isCorrect)} key={element.option} className="list-group-item mb-2">{element.option}</li>;
+                return <motion.li variants={fade} initial = "hidden" animate = "show" onClick={()=>onClickHandler(element.isCorrect)} key={element.option} className="list-group-item mb-2">{element.option}</motion.li>;
               })}
-            </ul>
-          </div>
-        </div>
+            </motion.ul>
+          </motion.div>
+        </motion.div>
       )}
       <ToastContainer />
-    </div>
+    </motion.div>
   );
 };
 

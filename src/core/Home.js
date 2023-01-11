@@ -60,7 +60,7 @@ const Home = () => {
             <div className="card border border-warning bg-dark">
               <img src={image} alt="image1" />
               <div className="card-body bg-primary">
-                <p className="text-center text-white">Click on Quiz</p>
+                <p className="text-center text-white">Click on Quiz or Play Now</p>
               </div>
             </div>
           </div>
@@ -76,7 +76,7 @@ const Home = () => {
             <div className="card bg-dark">
               <img src={image} alt="img3" className="card-img-top" />
               <div className="card-body bg-primary">
-                <p className="text-center text-white">Click on Play Now!</p>
+                <p className="text-center text-white">Click on Enter Quiz!</p>
               </div>
             </div>
           </div>
