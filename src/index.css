@@ -64,3 +64,8 @@ body{
     margin-top: 10rem;
     height: 50vh;
 }
+
+.imgFluid{
+    height: 190px;
+    object-fit: cover;
+}

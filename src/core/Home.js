@@ -3,7 +3,9 @@ import Menu from "./Menu";
 import image from "../images/homeimage.png";
 import { useNavigate } from "react-router-dom";
 import Footer from "./Footer";
-
+import image1 from "../images/image1.png";
+import image2 from "../images/image2.png";
+import image3 from "../images/image3.png";
 const Home = () => {
   const navigate = useNavigate();
 
@@ -58,7 +60,7 @@ const Home = () => {
         <div className="row py-4">
           <div className="col-md-4 mb-3">
             <div className="card border border-warning bg-dark">
-              <img src={image} alt="image1" />
+              <img src={image1} alt="image1" className="card-img-top imgFluid"/>
               <div className="card-body bg-primary">
                 <p className="text-center text-white">Click on Quiz or Play Now</p>
               </div>
@@ -66,7 +68,7 @@ const Home = () => {
           </div>
           <div className="col-md-4 mb-3">
             <div className="card border border-warning">
-              <img src={image} alt="imag2" />
+              <img src={image3} alt="imag2" className="imgFluid"/>
               <div className="card-body bg-primary">
                 <p className="text-center text-white">Enter Your Name</p>
               </div>
@@ -74,7 +76,7 @@ const Home = () => {
           </div>
           <div className="col-md-4 mb-3">
             <div className="card bg-dark">
-              <img src={image} alt="img3" className="card-img-top" />
+              <img src={image2} alt="img3" className="card-img-top imgFluid" />
               <div className="card-body bg-primary">
                 <p className="text-center text-white">Click on Enter Quiz!</p>
               </div>

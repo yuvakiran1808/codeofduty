@@ -90,23 +90,6 @@ const Quiz = ({character}) => {
       }
       else{
         setShow(true);
-        if(score<=2)
-        {
-          toast("You Lose",{
-            type: "warning",
-            autoClose: 5000,
-            theme : "dark",
-            position : "top-center"
-        });
-        }
-        else{
-          toast("You Won",{
-            type: "success",
-            autoClose: 5000,
-            theme : "dark",
-            position : "top-center"
-        });
-        }
       }
   }
   return (
